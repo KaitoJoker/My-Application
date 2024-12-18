@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="nama_saya">Septian Farisi</string>
+    <string name="hobby_saya">Main Game</string>
+    <string name="acak_dadu">Acak Dadu</string>
+    <string name="urut_dadu">Urut Dadu</string>
+    <string name="logoDadu">Logo Dadu</string>
+    <string name="reset_dadu">Reset Dadu</string>
+
+    <string name="base_url">http://192.168.10.250:4000/</string>
+
+    <string name="buttonPindahHalamanListMovie">Pindah ke Halaman List Movie</string>
+    <string name="buttonPindahHalamanKalkulator">Pindah ke Halaman Kalkulator</string>
+
+    <string name="satu">1</string>
+    <string name="dua">2</string>
+    <string name="tiga">3</string>
+    <string name="empat">4</string>
+    <string name="lima">5</string>
+    <string name="enam">6</string>
+    <string name="tujuh">7</string>
+    <string name="delapan">8</string>
+    <string name="sembilan">9</string>
+    <string name="nol">0</string>
+    <string name="balik">Kembali ke Dadu</string>
+    <string name="nol1"/>
+    <string name="samaDengan">=</string>
+    <string name="tambah">+</string>
+    <string name="kurang">-</string>
+    <string name="kali">x</string>
+    <string name="bagi">/</string>
+    <string name="koma">,</string>
+    <string name="titik">.</string>
+    <string name="hapus"><![CDATA[<=]]></string>
+    <string name="c">C</string>
+    <string name="ac">AC</string>
+</resources>
