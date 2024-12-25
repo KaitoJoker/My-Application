@@ -32,7 +32,7 @@ internal class MovieAdapter(private var movieList:  List<Movies>) :
         holder.deskripsi.text = movie.deskripsi
         holder.rating.text = movie.rating
         holder.sutradara.text = movie.sutradara
-        var url_image = "http://192.168.10.250:4000/" + movie.foto
+        var url_image = "http://192.168.26.250:4000/" + movie.foto
         Picasso
             .get()
             .load(url_image)

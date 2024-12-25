@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import network.movies.MovieAdapter
 import network.movies.Movies
@@ -23,7 +23,7 @@ class ListMovies : AppCompatActivity() {
         setContentView(R.layout.activity_list_movies)
         val recyclerView: RecyclerView = findViewById(R.id.recycleView)
 
-        val layoutManager = LinearLayoutManager(applicationContext)
+        val layoutManager = GridLayoutManager(applicationContext, 2)
         recyclerView.layoutManager = layoutManager
         recyclerView.itemAnimator = DefaultItemAnimator()
 
