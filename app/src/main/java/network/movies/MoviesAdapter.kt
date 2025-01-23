@@ -1,8 +1,10 @@
 package network.movies
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.NonNull
@@ -10,12 +12,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.squareup.picasso.Picasso
 
-internal class MovieAdapter(private var movieList:  List<Movies>) :
+internal class MovieAdapter(
+    private val context: Context,
+    private var movieList:  List<Movies>) :
     RecyclerView.Adapter<MovieAdapter.MyViewHolder>() {
     internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var judul: TextView = view.findViewById(R.id.judul)
         var rating: TextView = view.findViewById(R.id.rating)
-        var deskripsi: TextView = view.findViewById(R.id.deskripsi)
+        var deskripsi: WebView = view.findViewById(R.id.deskripsi)
         var sutradara: TextView = view.findViewById(R.id.sutradara)
         var foto : ImageView= view.findViewById(R.id.foto)
     }
@@ -29,21 +33,24 @@ internal class MovieAdapter(private var movieList:  List<Movies>) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val movie = movieList[position]
         holder.judul.text = movie.judul
-        holder.deskripsi.text = movie.deskripsi
+        // Menyiapkan URL YouTube IFrame API
+        val youtubeUrl = "https://www.youtube.com/embed/" + movie.deskripsi  // movie.deskripsi berisi video ID
+
+        // Mengaktifkan JavaScript pada WebView
+        val webSettings = holder.deskripsi.settings
+        webSettings.javaScriptEnabled = true
+
+        // Memuat URL YouTube ke dalam WebView
+        holder.deskripsi.loadUrl(youtubeUrl)
         holder.rating.text = movie.rating
         holder.sutradara.text = movie.sutradara
-        var url_image = "http://192.168.26.250:4000/" + movie.foto
+        val urlImage = "http://192.168.125.250:4000/" + movie.foto
         Picasso
             .get()
-            .load(url_image)
+            .load(urlImage)
             .resize(650, 850)
             .centerCrop()
             .into(holder.foto)
-//        Glide
-//            .with(holder.foto.context)
-//            .load(movie.foto)
-//            .centerCrop()
-//            .into(holder.foto);
     }
     override fun getItemCount(): Int {
         return movieList.size

@@ -34,4 +34,8 @@
     <string name="hapus"><![CDATA[<=]]></string>
     <string name="c">C</string>
     <string name="ac">AC</string>
+    <string name="page_title">Movies</string>
+    <string name="favorite">Movie List</string>
+    <string name="search">search</string>
+    <string name="more">More</string>
 </resources>

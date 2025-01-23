@@ -11,8 +11,16 @@ class MoviesViewModel: ViewModel() {
     val myResponseList: MutableLiveData<List<Movies>> = MutableLiveData()
     fun getMovies() {
         viewModelScope.launch {
-            myResponseList.value  = MoviesNetwork.retrofit.getMovies().data
+            try {
+                // Panggil API dan ambil data film
+                val response = MoviesNetwork.retrofit.getMovies()
+                myResponseList.value = response.data // Pastikan `data` berisi `List<Movies>`
+            } catch (e: Exception) {
+                // Tangani kesalahan jaringan atau lainnya
+                myResponseList.value = emptyList() // Berikan nilai kosong jika terjadi error
+                e.printStackTrace()
+            }
         }
-    }
 
+    }
 }
